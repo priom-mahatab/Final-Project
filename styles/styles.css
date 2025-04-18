@@ -1,0 +1,292 @@
+body {
+    font-family: 'gesta', sans-serif;
+    background-color: white;
+    color: white;
+    text-align: center;
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 100px;
+}
+
+h1, h2 {
+    margin-bottom: 0.5em;
+}
+
+label {
+  font-weight: 100;
+}
+
+.top-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  border-bottom: 2px rgba(0, 0, 0, 0.85);
+  z-index: 1000;
+  padding: 0.8em 0;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2em;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2em;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #ff6600;
+}
+
+.logo img {
+  height: 75px;
+  width: auto;
+}
+
+.hero-section {
+  position: relative;
+  max-width: 1060px;       
+  margin: 2em auto;         
+  padding: 0 1em;         
+  background: none;
+  box-shadow: none;
+}
+
+.hero-section img {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  box-shadow: -10px 10px 0px rgba(0, 0, 0, 0.85);
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  padding: 1em;
+}
+
+.hero-text h1 {
+  font-size: 5em;
+  font-family: 'Great Vibes', cursive;
+  margin-bottom: 0.1em;
+}
+
+.hero-text p {
+  font-size: 1.3em;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.about-section {
+  text-align: left;
+  font-size: 0.95em;
+  max-width: 800px;
+  margin: 0 auto;
+  color: rgba(0, 0, 0, 0.8);
+  font-family: 'gesta', sans-serif;
+  background: none;
+  position: relative;
+}
+
+.about-line {
+  font-weight: 700;
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 2em;
+  text-transform: uppercase;
+}
+
+section {
+    margin: 3em auto;
+    padding: 3em 2em;
+    max-width: 1000px;
+    background-color: #e65500;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: -10px 10px 0px rgba(0, 0, 0, 0.85);
+}
+
+label {
+    display: block;
+    margin-top: 1em;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="tel"], select {
+  width: 90%;
+  padding: 0.8em;
+  margin: 0.5em auto;
+  font-size: 0.7em;
+  border: none;
+  border-radius: 5px;
+  display: block;
+  background-color: white;
+}
+
+input::placeholder {
+  font-size: 0.7em;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+select:focus {
+  outline: none; 
+  border: 2px solid #ff6600; 
+}
+
+button {
+  padding: 0.6em 1.2em;
+  margin: 0.5em;
+  font-size: 0.7em;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.hidden {
+    display: none;
+}
+
+#menu-section, .about-section {
+  background-color: #e65500;
+  color: rgba(0, 0, 0, 0.85);
+  padding: 3em 2em;
+  max-width: 1000px;
+  margin: 3em auto;
+  border-radius: 10px;
+  box-shadow: -10px 10px 0px rgba(0, 0, 0, 0.85);
+}
+
+#menu-section h2, .about-section h2 {
+  font-family: 'Great Vibes', cursive; /* or a script font you prefer */
+  color: white;
+  font-size: 2.5em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.item-name {
+  font-weight: bold;
+  font-size: 1em;
+  margin: 0;
+  text-align: left;
+}
+
+.price {
+  font-weight: bold;
+  white-space: nowrap;
+  text-align: right;
+}
+
+.item-desc {
+  margin-top: 0.4em;
+  text-align: left;
+  font-size: 0.95em;
+  line-height: 1.4;
+}
+
+#display-order p {
+  line-height: 2em;
+}
+
+#photos-section {
+  max-width: 1070px;
+  margin: 3em auto;
+  padding: 0 2em;
+  text-align: center;
+  background: none;
+  box-shadow: none;
+}
+
+#photos-section h2 {
+  font-family: 'Great Vibes', cursive;
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+  text-align: center;
+
+}
+
+.gallery-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.gallery-container {
+  display: flex;
+  gap: 2em;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1em 0;
+}
+
+.gallery-container img {
+  height: 300px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.gallery-container img:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 3em;
+  }
+
+  .hero-text p {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 2em;
+  }
+
+  .hero-text p {
+    font-size: 0.9em;
+  }
+}
+
+
