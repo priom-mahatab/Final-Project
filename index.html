@@ -1,252 +1,138 @@
+<!-- Assignment-10 – COSC 2328 – Professor McCurry -->
+<!-- Implemented by - Your name Zohaer and Luis -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Truck Fanatic</title>
-    <link rel="stylesheet" href="https://use.typekit.net/ktg1upz.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap">
-    <link rel="stylesheet" href="styles/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Food Truck Fanatic</title>
+  <link rel="stylesheet" href="https://use.typekit.net/ktg1upz.css"> <!--For Fonts-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap">
+  <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <nav class="top-nav">
+
+  <!-- NAV BAR ON TOP -->
+  <nav class="top-nav">
     <div class="nav-container">
-        <!-- Logo -->
-        <div class="logo">
-            <img src="./images/logo.png" alt="Your Food Truck Logo">
-        </div>
-
-        <!-- Navigation Links -->
-        <ul class="nav-links">
-            <li><a href="#about-section">About Us</a></li>
-            <li><a href="#menu-section">Menu</a></li>
-            <li><a href="#photos-section">Photos</a></li>
-        </ul>
+      <div class="logo">
+        <img src="./images/logo.png" alt="Your Food Truck Logo">
+      </div>
+      <ul class="nav-links">
+        <li><a href="#about-section">About Us</a></li>
+        <li><a href="#menu-section">Menu</a></li>
+        <li><a href="#photos-section">Photos</a></li>
+      </ul>
     </div>
-    </nav>
+  </nav>
 
-    <section class="hero-section">
-        <img src="./images/chicken.jpg" alt="food">
-        <div class="hero-overlay"></div>
-        <div class="hero-text">
-            <h1>Fresh. Local. Bold</h1>
-            <p>Your favorite flavors on wheels</p>
-        </div>
-    </section>
+  <!-- BIG MAIN IMAGE -->
+  <section class="hero-section">
+    <img src="./images/chicken.jpg" alt="food">
+    <div class="hero-overlay"></div>
+    <div class="hero-text">
+      <h1>Fresh. Local. Bold</h1>
+      <p>Your favorite flavors on wheels</p>
+    </div>
+  </section>
 
-    <section class="about-section" id="about-section">
-        <h2>About Us</h2>
-        <h3 class="about-line">
-            Located in the heart of Austin, our food truck serves up
-            Southern- and Cajun-inspired dishes with a modern twist.
-            Try our crispy chicken sandwiches — hot dipped, if you dare!
-            Wash it all down with a cold beverage from our curated drink 
-            list, featuring local brews, handcrafted cocktails, and a signature slushie lineup.
-        </h3>
-        
+  <!-- ABOUT -->
+  <section class="about-section" id="about-section">
+    <h2>About Us</h2>
+    <h3 class="about-line">
+      Located in the heart of Austin, our food truck serves up
+      Southern- and Cajun-inspired dishes with a modern twist.
+      Try our crispy chicken sandwiches — hot dipped, if you dare!
+      Wash it all down with a cold beverage from our curated drink 
+      list, featuring local brews, handcrafted cocktails, and a signature slushie lineup.
+    </h3>
+    <p class="about-line">
+      Don’t forget to ask about our loyalty program! We also cater and do events!
+    </p>
+  </section>
 
-        <p class="about-line">
-            Don’t forget to ask about our loyalty program! We also cater and do events!
-        </p>
-    </section>
+  <!-- PHONE ENTRY SECTION -->
+  <section id="phone-entry">
+    <form id="phone-entry-form" method="post">
+      <h2>Enter your Phone Number</h2>
+      <input 
+        type="tel" 
+        id="phone" 
+        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
+        placeholder="xxx-xxx-xxxx" 
+        required>
+      <button type="button" onclick="lookupPhone()">Submit</button>
+    </form>
+  </section>
 
-    <section id="phone-entry">
-        <form id="phone-entry-form" method="post">
-            <h2>Enter your Phone Number</h2>
-            <input type="tel" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="xxx-xxx-xxxx" required>
-            <button onclick="lookupPhone()">Submit</button>
-        </form>
-        
-    </section>
+  <!--CUSTOMER INFO-->
+  <section id="customer-info" class="hidden">
+    <form id="customer-info-form" method="post">
+      <h2>Customer Information</h2>
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Full Name">
+      <label for="address">Address</label>
+      <input type="text" id="address" placeholder="Street Address">
+      <button type="submit">Save Info</button>
+    </form>
+  </section>
 
-    <section id="customer-info" class="hidden">
-        <form id="customer-info-form" method="post">
-            <h2>Customer Information</h2>
-            <label for="name">Name</label>
-            <input type="text" id="name" placeholder="Full Name"><br>
-            <label for="address">Address</label>
-            <input type="text" id="address" placeholder="Street Address"><br>
-            <button type="submit">Save Info</button>
-        </form>
-        
-    </section>
+  <!-- ORDER FORM -->
+  <section id="order-form" class="hidden">
+    <form id="order-info-form" method="post">
+      <h2>Order Form</h2>
 
-    <section id="order-form" class="hidden">
-        <form id="order-info-form" method="post">
-            <h2>Order Form</h2>
-            <label for="item">Choose your item:</label>
-            <select id="item">
-                <option value="" disabled selected>Select an item</option>
-                <option value="Corn Ribs">Corn Ribs - $15</option>
-                <option value="Crab Hushpuppies">Crab Hushpuppies - $14</option>
-                <option value="House Salad Half">House Salad Half - $8</option>
-                <option value="House Salad Full">House Salad Full - $11</option>
-                <option value="Fried Wings Small">Fried Wings Small - $10</option>
-                <option value="Fried Wings Large">Fried Wings Large - $16</option>
-                <option value="Fried Okra">Fried Okra - $12</option>
-                <option value="Firecracker Shrimp">Firecracker Shrimp - $16</option>
-            </select>
+      <label for="item">Choose your item:</label>
+      <select id="item"></select>
 
-            <label for="qty">Quantity</label>
-            <select id="qty"></select>
+      <label for="qty">Quantity</label>
+      <select id="qty"></select>
 
-            <label for="drink">Choose your drink:</label>
-            <select id="drink">
-                <option value="" disabled selected>Select a drink</option>
-                <option value="Water">Water - $1</option>
-                <option value="Coca Cola">Coca Cola - $2</option>
-                <option value="Sprite">Sprite - $2</option>
-                <option value="Pepsi">Pepsi - $2</option>
-                <option value="Fanta">Fanta - $2</option>
-                <option value="Mountain Dew">Mountain Dew - $2</option>
-                <option value="Ice Tea">Ice Tea - $5</option>
-            </select>
+      <label for="drink">Choose your drink:</label>
+      <select id="drink"></select>
 
-            <label for="drink-qty">Quantity</label>
-            <select id="drink-qty"></select>
+      <label for="drink-qty">Quantity</label>
+      <select id="drink-qty"></select>
 
-            <button type="submit">Confirm Order</button>
-            <button onclick="clearOrder">Clear Order</button>
-        </form>
-        <div id="display-order">
+      <button type="button" id="add-to-cart">Add to Cart</button>
 
-        </div>
-    </section>
+      <!-- updating preview of the current order selected -->
+      <div id="display-order"></div>
 
+      <!-- running cart summary -->
+      <div id="cart-summary"></div>
 
-    <!-- <button onclick="clearForms()">Clear All</button> -->
+      <button type="submit">Submit Order</button>
+      <button type="button" onclick="clearOrder()">Clear Order</button>
+    </form>
+  </section>
 
+  <!-- Dynamic JS filled menu -->
+  <section id="menu-section">
+    <div class="menu-grid">
+      <h2>Table Snacks</h2>
+      <div class="menu-snacks"></div>
 
-    <section id="menu-section">
-        
-        <div class="menu-grid">
-            <h2>Table Snacks</h2>
-            <div class="menu-item">
-                <div class="menu-header">
-                    <h3 class="item-name">CORN RIBS</h3>
-                    <span class="price">$15</span>
-                </div>
-                <p class="item-desc">Eat just like a bone-in rib. Crusted & dusted w/ our house seasoning and served w/ Black Pepper Ranch</p>
-            </div>
+      <h2>Drinks</h2>
+      <div class="menu-drinks"></div>
+    </div>
+  </section>
 
-            <div class="menu-item">
-                <div class="menu-header">
-                    <h3 class="item-name">CRAB HUSHPUPPIES</h3>
-                    <span class="price">$14</span>
-                </div>
-                <p class="item-desc">Comeback Sauce, Scallions, Lemon</p>
-            </div>
+  <!-- Photos -->
+  <section id="photos-section">
+    <h2>Photos</h2>
+    <div class="gallery-wrapper">
+      <div class="gallery-container" id="photo-gallery">
+        <img src="images/crab-hushpuppes.jpg" alt="crab">
+        <img src="images/fried-wings.webp"   alt="wings">
+        <img src="images/fried-okra.webp"    alt="okra">
+        <img src="images/firecracker-shrimp.jpg" alt="shrimp">
+        <img src="images/house-salad.jpg"    alt="salad">
+      </div>
+    </div>
+  </section>
 
-            <div class="menu-item">
-                <div class="menu-header">
-                    <h3 class="item-name">PIMENTO CHEESE & CRACKERS</h3>
-                    <span class="price">$14</span>
-                </div>
-                <p class="item-desc">Made w/ Prairie Fruits Farm Cheese. Served w/ Saltines & Pickles</p>
-            </div>
-
-            <div class="menu-item">
-                <div class="menu-header">
-                    <h3 class="item-name">HOUSE SALAD</h3>
-                    <span class="price">$8 HALF / $11 FULL</span>
-                </div>
-                <p class="item-desc">Mixed Greens, Croutons, Cherry Tomatoes, Red Onion, Cheddar, Choice Of Ranch Or Citrus Vin.</p>
-            </div>
-
-            <div class="menu-item">
-                <div class="menu-header">
-                    <h3 class="item-name">FRIED WINGS</h3>
-                    <span class="price">$10 SMALL / $16 LARGE</span>
-                </div>
-                <p class="item-desc">Tossed in Carolina Gold or Buffalo Sauce</p>
-            </div>
-
-            <div class="menu-item">
-                <div class="menu-header">
-                    <h3 class="item-name">FRIED OKRA</h3>
-                    <span class="price">$12</span>
-                </div>
-                <p class="item-desc">Served w/ house-made Watson's White Sauce</p>
-            </div>
-
-            <div class="menu-item">
-                <div class="menu-header">
-                    <h3 class="item-name">FIRECRACKER SHRIMP</h3>
-                    <span class="price">$16</span>
-                </div>
-                <p class="item-desc">6 Panko Breaded Tiger Shrimp tossed in Firecracker Sauce</p>
-            </div>
-
-            <h2>Drinks</h2>
-            <div class="menu-item">
-                <div class="menu-header">
-                    <h3 class="item-name">WATER</h3>
-                    <span class="price">$1</span>
-                </div>
-                <p class="item-desc">Options: Aquafina, Great Value</p>
-            </div>
-            <div class="menu-item">
-                <div class="menu-header">
-                    <h3 class="item-name">COCA COLA</h3>
-                    <span class="price">$2</span>
-                </div>
-                <p class="item-desc">Options: Normal, Diet, Zero</p>
-            </div>
-            <div class="menu-item">
-                <div class="menu-header">
-                    <h3 class="item-name">PEPSI</h3>
-                    <span class="price">$2</span>
-                </div>
-                <p class="item-desc">Options: Normal, Diet, Zero</p>
-            </div>
-            <div class="menu-item">
-                <div class="menu-header">
-                    <h3 class="item-name">SPRITE</h3>
-                    <span class="price">$2</span>
-                </div>
-                <p class="item-desc">Options: Normal, Diet, Zero</p>
-            </div>
-            <div class="menu-item">
-                <div class="menu-header">
-                    <h3 class="item-name">FANTA</h3>
-                    <span class="price">$2</span>
-                </div>
-                <p class="item-desc">Options: Normal, Diet, Zero</p>
-            </div>
-            <div class="menu-item">
-                <div class="menu-header">
-                    <h3 class="item-name">MOUNTAIN DEW</h3>
-                    <span class="price">$2</span>
-                </div>
-                <p class="item-desc">Options: Normal, Diet, Zero</p>
-            </div>
-            <div class="menu-item">
-                <div class="menu-header">
-                    <h3 class="item-name">ICE TEA</h3>
-                    <span class="price">$5</span>
-                </div>
-                <p class="item-desc">Options: Peach, Ginger, Summertime Citrus</p>
-            </div>
-
-        </div>
-        
-    </section>
-
-    <section id="photos-section">
-        <h2>Photos</h2>
-        <div class="gallery-wrapper">
-            <div class="gallery-container" id="photo-gallery">
-                <img src="images/crab-hushpuppes.jpg" alt="crab">
-                <img src="images/fried-wings.webp" alt="wings">
-                <img src="images/fried-okra.webp" alt="okra">
-                <img src="images/firecracker-shrimp.jpg" alt="shrimp">
-                <img src="images/house-salad.jpg" alt="salad">
-            </div>
-        </div>
-    </section>
-
-    
-    <script src=script/script.js></script>
-
+  <script src="script/script.js"></script>
 </body>
 </html>

@@ -1,15 +1,15 @@
 body {
-    font-family: 'gesta', sans-serif;
-    background-color: white;
-    color: white;
-    text-align: center;
-    min-height: 100vh;
-    margin: 0;
-    padding-top: 100px;
+  font-family: 'gesta', sans-serif;
+  background-color: white;
+  color: white;
+  text-align: center;
+  min-height: 100vh;
+  margin: 0;
+  padding-top: 100px;
 }
 
 h1, h2 {
-    margin-bottom: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 label {
@@ -60,22 +60,19 @@ label {
   width: auto;
 }
 
+/* big image section */
 .hero-section {
   position: relative;
-  max-width: 1060px;       
-  margin: 2em auto;         
-  padding: 0 1em;         
-  background: none;
-  box-shadow: none;
+  max-width: 1060px;
+  margin: 2em auto;
+  padding: 0 1em;
 }
 
 .hero-section img {
-  position: relative;
   width: 100%;
-  height: auto;
   display: block;
   border-radius: 10px;
-  box-shadow: -10px 10px 0px rgba(0, 0, 0, 0.85);
+  box-shadow: -10px 10px 0 rgba(0, 0, 0, 0.85);
 }
 
 .hero-text {
@@ -100,6 +97,12 @@ label {
   text-transform: uppercase;
 }
 
+.hero-section {
+  background: none;      
+  box-shadow: none; /* removes weird offset shadow */
+}
+
+/* about */
 .about-section {
   text-align: left;
   font-size: 0.95em;
@@ -119,23 +122,26 @@ label {
   text-transform: uppercase;
 }
 
+/* form */
+
 section {
-    margin: 3em auto;
-    padding: 3em 2em;
-    max-width: 1000px;
-    background-color: #e65500;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    box-shadow: -10px 10px 0px rgba(0, 0, 0, 0.85);
+  margin: 3em auto;
+  padding: 3em 2em;
+  max-width: 1000px;
+  background-color: #e65500;
+  border-radius: 10px;
+  box-shadow: -10px 10px 0 rgba(0, 0, 0, 0.85);
 }
 
 label {
-    display: block;
-    margin-top: 1em;
-    font-weight: bold;
+  display: block;
+  margin-top: 1em;
+  font-weight: bold;
 }
 
-input[type="text"], input[type="tel"], select {
+input[type="text"],
+input[type="tel"],
+select {
   width: 90%;
   padding: 0.8em;
   margin: 0.5em auto;
@@ -153,8 +159,8 @@ input::placeholder {
 input[type="text"]:focus,
 input[type="tel"]:focus,
 select:focus {
-  outline: none; 
-  border: 2px solid #ff6600; 
+  outline: none;
+  border: 2px solid #5c2500;
 }
 
 button {
@@ -173,45 +179,102 @@ button:hover {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-.hidden {
-    display: none;
+button.active {
+  background-color: #77330c !important;
+  color: white;
 }
 
-#menu-section, .about-section {
+
+.hidden {
+  display: none;
+}
+
+/* menu section */
+#menu-section,
+.about-section {
   background-color: #e65500;
   color: rgba(0, 0, 0, 0.85);
   padding: 3em 2em;
   max-width: 1000px;
   margin: 3em auto;
   border-radius: 10px;
-  box-shadow: -10px 10px 0px rgba(0, 0, 0, 0.85);
+  box-shadow: -10px 10px 0 rgba(0, 0, 0, 0.85);
 }
 
-#menu-section h2, .about-section h2 {
-  font-family: 'Great Vibes', cursive; /* or a script font you prefer */
+#menu-section h2,
+.about-section h2 {
+  font-family: 'Great Vibes', cursive;
   color: white;
   font-size: 2.5em;
   margin-bottom: 1em;
   text-align: center;
 }
 
-.menu-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+/* containers for JS‑generated menu cards */
+.menu-snacks, .menu-drinks {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 0.75em;
+  margin: 0 auto 2em auto;
+  max-width: 800px;      
+  width: 100%;
 }
 
+
+/* each menu card */
+.menu-item {
+  padding: 0;
+}
+
+/* sets up dots connecting name & price */
+.menu-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* draws the dotted/dashed line so it looks nice */
+.menu-header::before {
+  content: "";
+  position: absolute;
+  top: 75%; left: 0; right: 0;
+  height: 2px;/* lowers the line so it looks better */
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      rgba(0,0,0,0.85) 0,
+      rgba(0,0,0,0.85) 2px,
+      transparent 2px,
+      transparent 8px
+    );
+  transform: translateY(-50%);
+}
+
+
+/* makes it so the connecting dots stay between the text only */
+.menu-header > .item-name,
+.menu-header > .price {
+  position: relative;
+  background-color: #e65500;
+  padding: 0 0.5em;
+}
+
+
+/* text customization */
 .item-name {
   font-weight: bold;
   font-size: 1em;
   margin: 0;
   text-align: left;
+  color: rgba(0, 0, 0, 0.85);
 }
 
 .price {
   font-weight: bold;
   white-space: nowrap;
   text-align: right;
+  color: rgba(0, 0, 0, 0.85);
 }
 
 .item-desc {
@@ -219,12 +282,15 @@ button:hover {
   text-align: left;
   font-size: 0.95em;
   line-height: 1.4;
+  color: rgba(0, 0, 0, 0.7);
 }
 
+/* for order summary alignment */
 #display-order p {
   line-height: 2em;
 }
 
+/* photo section */
 #photos-section {
   max-width: 1070px;
   margin: 3em auto;
@@ -240,7 +306,6 @@ button:hover {
   font-size: 2.5em;
   margin-bottom: 0.5em;
   text-align: center;
-
 }
 
 .gallery-wrapper {
@@ -269,23 +334,22 @@ button:hover {
   transform: scale(1.05);
 }
 
+/* creates page responsiveness */
 @media (max-width: 768px) {
   .hero-text h1 {
-    font-size: 3em;
+      font-size: 3em;
   }
-
   .hero-text p {
-    font-size: 1em;
+      font-size: 1em;
   }
 }
 
 @media (max-width: 480px) {
   .hero-text h1 {
-    font-size: 2em;
+      font-size: 2em;
   }
-
   .hero-text p {
-    font-size: 0.9em;
+      font-size: 0.9em;
   }
 }
 
